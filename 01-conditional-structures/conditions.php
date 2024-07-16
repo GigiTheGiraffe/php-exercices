@@ -191,7 +191,7 @@ if (isset($_GET['age_soccer']) && isset($_GET['gender_soccer']) && isset($_GET['
         echo $message;
     }
         
-    //pour l'exercice 8 
+    //pour l'exercice 8
     /*
     if (isset($_GET["grade"])) {
         $grade = $_GET['grade'];
@@ -234,4 +234,33 @@ if (isset($_GET['age_soccer']) && isset($_GET['gender_soccer']) && isset($_GET['
     }
 }
 */
+$gender_hello = "M";
+$hello_message = ($gender_hello === "M") ? "Hey, we're glad you're there with us today, Mister Biscotte!<br><br>" : "Hey, we're glad you're there with us today, Miss Biscotte! <br><br>";
+echo $hello_message;
+
+if (isset($_GET["animal"])) {
+    $animal = $_GET['animal'];
+    switch ($animal) {
+        case 'human':
+            echo "<img src=\"https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmlmMXVyZmszNTE3cGNrZGpxY2JuamN2dzlrbTgwYThnZmQyNGtldiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vvBsAcNyjKk6iOkVx3/giphy.gif\" alt=\"gif of a funny human\">";
+            break;
+        case 'unicorn':
+            echo "<img src=\"https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3dhYnc4aGsyeDlkbWRzdDNqeGNsbXR0NHB3aDFiNWg0MnRxbTJuOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HULqwwF5tWKznstIEE/giphy.gif\" alt=\"gif of a funny unicorn\">";
+            break;
+        case 'cat':
+            echo "<img src=\"https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW0zMDJlMm5qczk4djZ2dWZpYXhpaGl1M3F2ZTUwN2g2ejRjZjZ5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJNoBCvQYp7nq/giphy.gif\" alt=\"gif of a funny cat\">";
+            break;
+    }
+}
 ?>
+
+<form method="get" action="">
+    <label for="animal">Are you a human, a cat or a unicorn ?</label>
+    <input type="radio" name="animal" id="human" value="human">
+    <label for="human">Human</label>
+    <input type="radio" name="animal" id="cat" value="cat">
+    <label for="cat">Cat</label>
+    <input type="radio" name="animal" id="unicorn" value="unicorn" checked>
+    <label for="unicorn">Unicorn</label>
+    <input type="submit" name="submitGif" value="Show me!!!">
+</form>
