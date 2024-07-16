@@ -117,7 +117,7 @@ if (isset($_GET['age']) && isset($_GET['gender']) && isset($_GET['english'])) {
 ?>
 <form method="get" action="">
     <label for="age">Please type your age in number </label>
-    <input type="number" name="age">
+    <input type="number" name="age" required>
     <br>
     <label for="gender">Please select your gender </label>
     <input type="radio" name="gender" value="male" id="male">
@@ -131,7 +131,7 @@ if (isset($_GET['age']) && isset($_GET['gender']) && isset($_GET['english'])) {
     <input type="radio" name="english" value="no" id="no">
     <label for="no">No </label>
     <br>
-    <input type="submit" name="submitRobot" value="Greet me now">
+    <input type="submit" name="submitRobot" value="Greet me now!">
 </form>
 
 <form method="get" action="">
@@ -145,7 +145,7 @@ if (isset($_GET['age']) && isset($_GET['gender']) && isset($_GET['english'])) {
     <label for="female">Female </label>
     <br>
     <label for="name_soccer">What's your firstname? </label>
-    <input type="texte" name="name_soccer">
+    <input type="texte" name="name_soccer" required>
     <br>
     <input type="submit" name="submitSoccer" value="Enroll!">
 </form>
@@ -165,6 +165,73 @@ if (isset($_GET['age_soccer']) && isset($_GET['gender_soccer']) && isset($_GET['
 
 <form method="get" action="">
     <label for="grade">What's the grade of the copy? </label>
-    <input type="number" name="grade" required>
+    <input type="number" name="grade" id="grade" required>
     <input type="submit" name="submitGrade" value="grade!">
 </form>
+<?php
+//Pour l'exercice 7
+   if (isset($_GET["grade"])) {
+        $message = "";
+        $grade = $_GET['grade'];
+        if ($grade <= 4 && $grade >= 0) {
+            $message = "This work is really bad. What a dumb kid!";
+        } elseif ($grade >=5 && $grade <= 9) {
+            $message = "This is not sufficient. More studying is required.";
+        } elseif ($grade === "10") {
+            $message = "barely enough!";
+        } elseif ($grade >=11 && $grade <= 14) {
+            $message = "Not bad!";
+        } elseif ($grade >=15 && $grade <= 18) {
+            $message = "Bravo, bravissimo!";
+        } elseif ($grade >=19 && $grade <= 20) {
+            $message = "Too good to be true : confront the cheater!";
+        } else {
+            $message = "Enter a grade between 0 and 20 please!";
+        }
+        echo $message;
+    }
+        
+    //pour l'exercice 8 
+    /*
+    if (isset($_GET["grade"])) {
+        $grade = $_GET['grade'];
+        switch ($grade) {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                echo "This work is really bad. What a dumb kid!";
+                break;
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                echo "This is not sufficient. More studying is required.";
+                break;
+            case '10':
+                echo "barely enough!";
+                break;
+            case '11':
+            case '12':
+            case '13':
+            case '14':
+                echo "Not bad!";
+                break;
+            case '15':
+            case '16':
+            case '17':
+            case '18':
+                echo "Bravo, bravissimo!";
+                break;
+            case '19':
+            case '20':
+                echo "Too good to be true : confront the cheater!";
+                break;
+            default:
+                echo "Enter a grade between 0 and 20 please!";
+    }
+}
+*/
+?>
