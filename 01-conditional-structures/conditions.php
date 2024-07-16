@@ -240,17 +240,12 @@ echo $hello_message;
 
 if (isset($_GET["animal"])) {
     $animal = $_GET['animal'];
-    switch ($animal) {
-        case 'human':
-            echo "<img src=\"https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmlmMXVyZmszNTE3cGNrZGpxY2JuamN2dzlrbTgwYThnZmQyNGtldiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vvBsAcNyjKk6iOkVx3/giphy.gif\" alt=\"gif of a funny human\">";
-            break;
-        case 'unicorn':
-            echo "<img src=\"https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3dhYnc4aGsyeDlkbWRzdDNqeGNsbXR0NHB3aDFiNWg0MnRxbTJuOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HULqwwF5tWKznstIEE/giphy.gif\" alt=\"gif of a funny unicorn\">";
-            break;
-        case 'cat':
-            echo "<img src=\"https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW0zMDJlMm5qczk4djZ2dWZpYXhpaGl1M3F2ZTUwN2g2ejRjZjZ5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJNoBCvQYp7nq/giphy.gif\" alt=\"gif of a funny cat\">";
-            break;
-    }
+
+    $url = ($animal == "human") ? 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmlmMXVyZmszNTE3cGNrZGpxY2JuamN2dzlrbTgwYThnZmQyNGtldiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vvBsAcNyjKk6iOkVx3/giphy.gif' :
+              (($animal == "unicorn") ? 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3dhYnc4aGsyeDlkbWRzdDNqeGNsbXR0NHB3aDFiNWg0MnRxbTJuOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HULqwwF5tWKznstIEE/giphy.gif' :
+              'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW0zMDJlMm5qczk4djZ2dWZpYXhpaGl1M3F2ZTUwN2g2ejRjZjZ5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJNoBCvQYp7nq/giphy.gif');
+
+    echo "<img src=\"$url\" alt=\"gif of a $animal\">";
 }
 ?>
 
