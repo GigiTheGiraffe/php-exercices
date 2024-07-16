@@ -136,7 +136,7 @@ if (isset($_GET['age']) && isset($_GET['gender']) && isset($_GET['english'])) {
 
 <form method="get" action="">
     <label for="age_soccer">Please type your age in number </label>
-    <input type="number" name="age_soccer">
+    <input type="number" name="age_soccer" required>
     <br>
     <label for="gender_soccer">Please select your gender </label>
     <input type="radio" name="gender_soccer" value="male" id="male">
@@ -159,6 +159,12 @@ if (isset($_GET['age_soccer']) && isset($_GET['gender_soccer']) && isset($_GET['
  if ($age_soccer >= 21 && $age_soccer <=40 && $gender_soccer === "female") {
     $message = "Welcome to the team, $name_soccer!";
  }
+ echo $message;
 }
- echo $message
 ?>
+
+<form method="get" action="">
+    <label for="grade">What's the grade of the copy? </label>
+    <input type="number" name="grade" required>
+    <input type="submit" name="submitGrade" value="grade!">
+</form>
